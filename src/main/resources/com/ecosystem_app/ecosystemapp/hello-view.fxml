@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.ecosystem_app.ecosystemapp.HelloController"
+      spacing="10"
+      alignment="CENTER"
+      style="-fx-padding: 20;">
+
+    <GridPane fx:id="gridPane"
+              hgap="5"
+              vgap="5"
+              style="-fx-border-color: black; -fx-padding: 10;"
+              VBox.vgrow="ALWAYS" />
+
+<!--    <Button text="Odśwież"-->
+<!--            onAction="#"-->
+<!--            style="-fx-padding: 10 20;" />-->
+</VBox>
+
