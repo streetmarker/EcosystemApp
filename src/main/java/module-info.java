@@ -4,6 +4,7 @@ module com.ecosystem_app.ecosystemapp {
 
     requires org.controlsfx.controls;
     requires org.kordamp.bootstrapfx.core;
+    requires java.desktop;
 //    requires com.ecosystem_app.ecosystemapp;
 
     opens com.ecosystem_app.ecosystemapp to javafx.fxml;

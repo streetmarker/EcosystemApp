@@ -1,13 +1,17 @@
 package com.ecosystem_app;
 
+import com.ecosystem_app.ecosystemapp.objects.Organism;
 import com.ecosystem_app.ecosystemapp.objects.World;
+
+import java.util.UUID;
 
 public class Test {
     public static void main(String[] args) {
         World world = new World(10,10);
-        world.putRandomObjects();
+        world.putRandomObjects(8);
         world.showBoard();
-
+//        com.ecosystem_app.ecosystemapp.objects.Organism organism = world.findByUUID(world.organisms.getFirst().getId());
+//        organism.getAvatar();
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {

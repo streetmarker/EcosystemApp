@@ -2,7 +2,7 @@ package com.ecosystem_app.ecosystemapp.objects;
 
 public class Herbivore extends Organism {
     public Herbivore(int x, int y) {
-        super(x, y, true, "Herbivore");
+        super(x, y, true, "Herbivore", "\uD83D\uDC11", "#ff9b00");
     }
 
     @Override

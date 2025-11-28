@@ -19,7 +19,10 @@
               VBox.vgrow="ALWAYS" />
 
 <!--    <Button text="Odśwież"-->
-<!--            onAction="#"-->
+<!--            onAction="#getBoard"-->
+<!--            style="-fx-padding: 10 20;" />-->
+<!--    <Button text="Cykl"-->
+<!--            onAction="#runCycle"-->
 <!--            style="-fx-padding: 10 20;" />-->
 </VBox>
 
