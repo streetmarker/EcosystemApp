@@ -13,10 +13,10 @@ public abstract class Organism {
     String avatar;
     String color;
 
-    public Organism(int x, int y, boolean isMoveable, String type, String avatar, String color) {
+    public Organism(int x, int y, boolean isMoveable, int energy, String type, String avatar, String color) {
         this.x = x;
         this.y = y;
-        this.energy = 15;
+        this.energy = energy;
         this.id = java.util.UUID.randomUUID();
         this.isMoveable = isMoveable;
         this.type = type;
@@ -25,7 +25,19 @@ public abstract class Organism {
         this.color = color;
     }
 
+    public String getType() {
+        return type;
+    }
+
     abstract void act(World world);
+
+    public int getY() {
+        return y;
+    }
+
+    public int getX() {
+        return x;
+    }
 
     void updateLocation(int x, int y, UUID[][] board, List<Organism> organisms){
         this.x = x;
@@ -37,6 +49,7 @@ public abstract class Organism {
 //            organisms.remove(this);
             this.shouldDie = true;
             System.out.println("Do uwalenia "+this.id);
+
         }
     }
 
@@ -49,5 +62,11 @@ public abstract class Organism {
 
     public UUID getId() {
         return id;
+    }
+
+    public void addEnergy() {
+        System.out.println("Energy top up: "+id
+        );
+        this.energy += 1;
     }
 }

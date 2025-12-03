@@ -27,7 +27,7 @@ tasks.withType<JavaCompile> {
 
 application {
     mainModule.set("com.ecosystem_app.ecosystemapp")
-    mainClass.set("com.ecosystem_app.ecosystemapp.HelloApplication")
+    mainClass.set("com.ecosystem_app.ecosystemapp.EcosystemApplication")
 }
 
 javafx {

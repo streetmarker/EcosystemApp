@@ -13,4 +13,7 @@ public class OrganismFactory {
             default -> new Herbivore(random.nextInt(10), random.nextInt(10));
         };
     }
+    public static Organism createPlant(int x, int y) {
+        return new Plant(x, y);
+    }
 }

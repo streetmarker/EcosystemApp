@@ -2,24 +2,31 @@ package com.ecosystem_app.ecosystemapp;
 
 import com.ecosystem_app.ecosystemapp.objects.Organism;
 import com.ecosystem_app.ecosystemapp.objects.World;
+import com.ecosystem_app.ecosystemapp.objects.WorldEvent;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.layout.GridPane;
 import javafx.util.Duration;
 
+import java.util.List;
 import java.util.UUID;
 
-public class HelloController {
+public class EcosystemController {
+
+    @FXML
+    public TextArea info;
     @FXML
     private GridPane gridPane;
-    private final World world = new World(10,10);
+    private final World world = new World(10,20);
 
     public void initialize() {
-        world.putRandomObjects(10);
+        world.putRandomObjects(20);
         getBoard();
         startAutoRefresh();
+        info.setEditable(false);
     }
     private void startAutoRefresh() {
         Timeline timeline = new Timeline(
@@ -27,6 +34,10 @@ public class HelloController {
                     world.runWorld();
                     getBoard();
                     world.showBoard();
+                    List<WorldEvent> events = world.drainEvents();
+                    if (!events.isEmpty()) {
+                        appendEventsToLog(events);
+                    }
                 })
         );
         timeline.setCycleCount(Timeline.INDEFINITE);
@@ -55,7 +66,13 @@ public class HelloController {
             }
         }
     }
-    public void runCycle() {
-        world.runWorld();
+    private void appendEventsToLog(List<WorldEvent> events) {
+        StringBuilder sb = new StringBuilder();
+        for (WorldEvent ev : events) {
+            sb.append(ev.toString()).append("\n");
+        }
+
+        info.appendText(sb.toString());
+        info.setScrollTop(Double.MAX_VALUE);
     }
 }
